@@ -8,13 +8,33 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, URLSessionDownloadDelegate {
+  
+    
+   weak var downloadDelegate: downloadDelegate?
+    
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+      
     }
+    
+    @IBAction func buttonTapped(_ sender: Any) {
+   
+        self.downloadDelegate?.downladWithDeskTask()
+    }
+        
+        
+    
 
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print("start")
+    }
+    
+    
+    
 
 }
 
